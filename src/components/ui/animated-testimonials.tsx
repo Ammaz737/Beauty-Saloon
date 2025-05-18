@@ -2,7 +2,8 @@
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 
 type Testimonial = {
   quote: string;
@@ -21,9 +22,9 @@ export const AnimatedTestimonials = ({
   const [active, setActive] = useState(0);
   const [rotations, setRotations] = useState<number[]>([]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -31,19 +32,17 @@ export const AnimatedTestimonials = ({
 
   const isActive = (index: number) => index === active;
 
-  // Client-side random rotations
   useEffect(() => {
     const randoms = testimonials.map(() => Math.floor(Math.random() * 21) - 10);
     setRotations(randoms);
   }, [testimonials]);
 
-  // Auto-play effect
   useEffect(() => {
     if (autoplay) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, handleNext]);
 
   if (!testimonials || testimonials.length === 0) {
     return (
@@ -61,7 +60,7 @@ export const AnimatedTestimonials = ({
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={testimonial.src}
+                  key={testimonial.name + index}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -90,14 +89,22 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <img
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={667}
-                    height={667}
-                    draggable={false}
-                    className="h-full w-full rounded-3xl  object-center"
-                  />
+                  {testimonial.src &&
+                  (testimonial.src.startsWith("http") ||
+                    testimonial.src.startsWith("/")) ? (
+                    <Image
+                      src={testimonial.src}
+                      alt={testimonial.name}
+                      width={667}
+                      height={667}
+                      draggable={false}
+                      className="h-full w-full rounded-3xl object-cover"
+                    />
+                  ) : (
+                    <div className="h-full w-full rounded-3xl bg-gray-200 flex items-center justify-center text-gray-500">
+                      No Image
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -146,6 +153,7 @@ export const AnimatedTestimonials = ({
               </motion.p>
             </motion.div>
           )}
+
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}

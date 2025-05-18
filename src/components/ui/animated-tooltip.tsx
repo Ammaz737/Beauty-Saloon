@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   motion,
   useTransform,
@@ -9,16 +10,18 @@ import {
   useSpring,
 } from "framer-motion";
 
-export const AnimatedTooltip = ({
-  items,
-}: {
-  items: {
-    id: number;
-    name: string;
-    designation: string;
-    image: string;
-  }[];
-}) => {
+type TooltipItem = {
+  id: number;
+  name: string;
+  designation: string;
+  image: string;
+};
+
+type AnimatedTooltipProps = {
+  items: TooltipItem[];
+};
+
+export const AnimatedTooltip = ({ items }: AnimatedTooltipProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0);
@@ -35,8 +38,10 @@ export const AnimatedTooltip = ({
     springConfig
   );
 
-  const handleMouseMove = (event: any) => {
-    const halfWidth = event.target.offsetWidth / 2;
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    const halfWidth = event.currentTarget.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth);
   };
 
@@ -45,7 +50,7 @@ export const AnimatedTooltip = ({
       {items.map((item) => (
         <div
           className="group relative -mr-4"
-          key={item.id} // ✅ FIXED HERE
+          key={item.id}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -80,7 +85,7 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <img
+          <Image
             onMouseMove={handleMouseMove}
             height={100}
             width={100}

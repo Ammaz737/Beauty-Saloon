@@ -12,13 +12,13 @@ export default function Home() {
             name: "Sarah khan",
             designation: "Pakistani Actress",
             quote: "Bohat zabardast service thi, highly recommend karta hoon.",
-            src: "ds.jpg",
+            src: "/ds.jpg",
           },
           {
             name: "Sarah khan",
             designation: "Pakistani Actress",
             quote: "Bohat zabardast service thi, highly recommend karta hoon.",
-            src: "da.jpg",
+            src: "/da.jpg",
           },
           {
             name: "Sarah khan",

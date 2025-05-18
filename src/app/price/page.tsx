@@ -2,8 +2,8 @@
 import { TracingBeam } from '@/components/ui/tracing-beam';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
 
-export const projects = [
-{
+const projects = [
+  {
     title: "Radiance Ritual – $20",
     description:
       "Enjoy a premium facial that deeply hydrates, smooths, and brightens your skin. Walk out with a fresh, radiant glow that lasts.",
@@ -40,16 +40,17 @@ export const projects = [
     link: "",
   },
 ];
+
 export default function PricingPackages() {
   return (
     <div className="px-4 sm:px-6 py-12 max-w-7xl mx-auto">
-        <h1 className='text-center font-semibold text-3xl'>Our Packages</h1>
-        <p className='text-center text-xl mt-3 text-green-400'>Choose the perfect package that suits your beauty needs.</p>
+      <h1 className='text-center font-semibold text-3xl'>Our Packages</h1>
+      <p className='text-center text-xl mt-3 text-green-400'>Choose the perfect package that suits your beauty needs.</p>
       <TracingBeam>
         <div className="max-w-5xl mx-auto px-8">
-      <HoverEffect items={projects} />
+          <HoverEffect items={projects} />
         </div>
       </TracingBeam>
-      </div>
+    </div>
   );
 }

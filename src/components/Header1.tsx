@@ -40,7 +40,7 @@ export default function Headers1() {
           <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
         </MobileNavHeader>
 
-        <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <MobileNavMenu isOpen={isOpen}>
           <div className="flex flex-col w-full gap-4">
             {navLinks.map((item, idx) => (
               <Link
