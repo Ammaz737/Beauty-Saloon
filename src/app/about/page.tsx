@@ -15,7 +15,7 @@ export default function AboutPage() {
                 At <strong>Glow & Grace Beauty Salon</strong>, we believe that beauty is confidence. Our expert stylists, makeup artists, and skincare professionals provide top-notch services tailored to your needs.
               </p>
               <p className="mt-4 text-white text-base sm:text-lg">
-                Whether it's a relaxing facial or a stunning bridal makeover, we’re here to make you feel radiant and refreshed.
+                Whether it&lsquo;s a relaxing facial or a stunning bridal makeover, we&lsquo;re here to make you feel radiant and refreshed.
               </p>
             </div>
             <div className="md:w-1/2 w-full">
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 Our mission is to create a safe, relaxing, and empowering environment where women feel truly beautiful. We focus on quality, hygiene, and satisfaction.
               </p>
               <p className="mt-4 text-white text-base sm:text-lg">
-                At Glow & Grace, beauty is not just a service — it's an experience.
+                At Glow & Grace, beauty is not just a service — it&lsquo;s an experience.
               </p>
             </div>
             <div className="md:w-1/2 w-full">

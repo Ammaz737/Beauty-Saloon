@@ -54,7 +54,7 @@ export default function Page() {
             We understand that plans can change. To maintain a smooth service flow:
             <br /><br />
             - Clients must inform us at least 24 hours before the scheduled time for cancellations or rescheduling.<br />
-            - Cancellations made with less than 24 hours' notice may be subject to a cancellation fee.<br />
+            - Cancellations made with less than 24 hours notice may be subject to a cancellation fee.<br />
             - Rescheduling is allowed once, free of charge, if done within the time window.<br /><br />
             Frequent last-minute cancellations may result in restricted future bookings.
           </p>
@@ -64,7 +64,7 @@ export default function Page() {
         <div>
           <h2 className="text-2xl font-semibold mb-2">Service Quality & Satisfaction</h2>
           <p className='text-white'>
-            We strive to provide high-quality beauty and grooming services tailored to each client’s needs.
+            We strive to provide high-quality beauty and grooming services tailored to each client&lsquo;s needs.
             <br /><br />
             - If you are not satisfied with a service, please let us know within 24 hours so we can address your concerns.<br />
             - Our staff is trained and certified, and we use quality products for all treatments.<br />

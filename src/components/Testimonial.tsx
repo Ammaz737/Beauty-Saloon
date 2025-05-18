@@ -1,5 +1,5 @@
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-const text = []
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-white bg-black font-semibold mt-10">

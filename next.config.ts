@@ -2,7 +2,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['comfortel.co.uk'], // image URL ka domain
+    
+    domains: ['assets.aceternity.com'], // image URL ka domain
   },
 }
 

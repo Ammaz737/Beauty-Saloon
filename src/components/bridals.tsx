@@ -1,5 +1,5 @@
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import {FollowerPointerCard} from "@/components/ui/following-pointer";
+
 const cards = [
   {
     src: "/sarah2.jpg",
